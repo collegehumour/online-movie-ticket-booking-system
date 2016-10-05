@@ -6,6 +6,8 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-family:Arial;
+    font-size:larger;
 }
 input[type=password] {
     width: 100%;
@@ -15,36 +17,124 @@ input[type=password] {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-family:Arial;
+    font-size:larger;
+}
+input[type=email] {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family:Arial;
+    font-size:larger;
+}
+input[type=date] {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family:Arial;
+    font-size:large;
+}
+textarea {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family:Arial;
+    font-size:larger;
 }
 input[type=submit] {
-    width: 100%;
     background-color: #4CAF50;
     color: white;
-    padding: 14px 40px;
-    margin: 8px 0;
+    padding: 14px 30px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-family:Calibri;
+    font-size:x-large;
 }
-
 input[type=submit]:hover {
     background-color: #f65605;
+}
+select{
+    width: 100%;
+    padding: 10px 20px;
+    margin: 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family:Arial;
+    font-size:large;
 }
 table {
     align-self:center;
     align-content:center;
     border-collapse:collapse;
     border-spacing:0;
+    display:grid;
 }
 div {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
+    width:100%;
+    height:100%; 
+    margin:auto;
 }
-label {
-    display:inline-block;
+
+.labels {
+    
     font-family:Georgia;
-    font-size:larger;
+    font-size:x-large;
 }
 
+.gridviews
+{
+	width: 80%;
+	border: solid 2px black;
+	min-width: 80%;
+    border-color:#979393;
+    text-align: center;
+}
+.gridviewheader
+{
+	background-color : #4CAF50;
+	font-family: Calibri;
+	font-size: 20px;
+	color: White;
+	border: none 0px transparent;
+	height: 25px;
+}
+.gridviewrows
+{
+	background-color: #FFF;
+	font-family: Georgia;
+	font-size: 16px;
+	color: #000;
+	border: none 0px transparent;
+}
+.gridviewrows:hover
+{
+	background-color: #f65605;
+	color: #fff;
+}
 
+.gridviewselectedrow
+{
+    background-color: #092af1;
+    font-family: Georgia;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
