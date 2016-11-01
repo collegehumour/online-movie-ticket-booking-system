@@ -20,7 +20,8 @@ namespace ShowTime
                 con.Open();
                 SqlCommand com = new SqlCommand();
                 com.Connection = con;
-                com.CommandText = @"insert into [dbo].[user] (user_id,name,email,password,role_name) values (select user_id,name,email,password,role_name from [dbo].[temp_user] where )";
+
+                /*com.CommandText = @"insert into [dbo].[user] (user_id,name,email,password,role_name) values (select user_id,name,email,password,role_name from [dbo].[temp_user] where )";
 
                 com.Parameters.AddWithValue("@name", TextBox1.Text);
                 com.Parameters.AddWithValue("@user_id", TextBox2.Text);
@@ -28,7 +29,8 @@ namespace ShowTime
                 com.Parameters.AddWithValue("@password", TextBox4.Text);
                 com.Parameters.AddWithValue("@role_name", DropDownList1.SelectedItem.Text);
 
-                com.ExecuteNonQuery();
+                com.ExecuteNonQuery();*/
+                
                 con.Close();
 
                 
