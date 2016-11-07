@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
@@ -20,7 +19,8 @@ namespace ShowTime
                 con.Open();
                 SqlCommand com = new SqlCommand();
                 com.Connection = con;
-
+                
+                 
                 /*com.CommandText = @"insert into [dbo].[user] (user_id,name,email,password,role_name) values (select user_id,name,email,password,role_name from [dbo].[temp_user] where )";
 
                 com.Parameters.AddWithValue("@name", TextBox1.Text);

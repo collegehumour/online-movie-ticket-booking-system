@@ -164,8 +164,25 @@
     <Content Include="Admin\AddAdmin.aspx" />
     <Content Include="Admin\AddMovie.aspx" />
     <Content Include="Admin\AdminHome.aspx" />
+    <Content Include="Admin\back.png" />
+    <Content Include="Admin\home1.png" />
+    <Content Include="Admin\MovieDetails.aspx" />
     <Content Include="Admin\MovieList.aspx" />
+    <Content Include="Admin\Posters\1.png" />
+    <Content Include="Admin\Posters\10.png" />
+    <Content Include="Admin\Posters\11.png" />
+    <Content Include="Admin\Posters\12.png" />
+    <Content Include="Admin\Posters\13.png" />
+    <Content Include="Admin\Posters\2.png" />
+    <Content Include="Admin\Posters\3.png" />
+    <Content Include="Admin\Posters\4.png" />
+    <Content Include="Admin\Posters\5.png" />
+    <Content Include="Admin\Posters\6.png" />
+    <Content Include="Admin\Posters\7.png" />
+    <Content Include="Admin\Posters\8.png" />
+    <Content Include="Admin\Posters\9.png" />
     <Content Include="Admin\TheaterList.aspx" />
+    <Content Include="Admin\UserInfo.aspx" />
     <Content Include="AfterRegistration.aspx" />
     <Content Include="App_Data\ShowTime_DB.mdf" />
     <Content Include="App_Data\ShowTime_DB_log.ldf">
@@ -180,6 +197,7 @@
     <Content Include="Error.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Home.aspx" />
+    <Content Include="logo.png" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -221,7 +239,17 @@
     <Content Include="Signin.aspx" />
     <Content Include="Signup.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="Theater\AddScreen.aspx" />
+    <Content Include="Theater\AddShow.aspx" />
+    <Content Include="Theater\gchair.png" />
+    <Content Include="Theater\MovieDetails.aspx" />
+    <Content Include="Theater\MovieList.aspx" />
+    <Content Include="Theater\rchair.png" />
+    <Content Include="Theater\ShowList.aspx" />
+    <Content Include="Theater\TheaterHome.aspx" />
+    <Content Include="Theater\TheaterScreens.aspx" />
     <Content Include="UserDetails.aspx" />
+    <Content Include="User\ClientHome.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -362,6 +390,13 @@
     <Compile Include="Admin\AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\MovieDetails.aspx.cs">
+      <DependentUpon>MovieDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MovieDetails.aspx.designer.cs">
+      <DependentUpon>MovieDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\MovieList.aspx.cs">
       <DependentUpon>MovieList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -375,6 +410,13 @@
     </Compile>
     <Compile Include="Admin\TheaterList.aspx.designer.cs">
       <DependentUpon>TheaterList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserInfo.aspx.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserInfo.aspx.designer.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="AfterRegistration.aspx.cs">
       <DependentUpon>AfterRegistration.aspx</DependentUpon>
@@ -464,12 +506,68 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="Theater\AddScreen.aspx.cs">
+      <DependentUpon>AddScreen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Theater\AddScreen.aspx.designer.cs">
+      <DependentUpon>AddScreen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Theater\AddShow.aspx.cs">
+      <DependentUpon>AddShow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Theater\AddShow.aspx.designer.cs">
+      <DependentUpon>AddShow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Theater\MovieDetails.aspx.cs">
+      <DependentUpon>MovieDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Theater\MovieDetails.aspx.designer.cs">
+      <DependentUpon>MovieDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Theater\MovieList.aspx.cs">
+      <DependentUpon>MovieList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Theater\MovieList.aspx.designer.cs">
+      <DependentUpon>MovieList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Theater\ShowList.aspx.cs">
+      <DependentUpon>ShowList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Theater\ShowList.aspx.designer.cs">
+      <DependentUpon>ShowList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Theater\TheaterHome.aspx.cs">
+      <DependentUpon>TheaterHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Theater\TheaterHome.aspx.designer.cs">
+      <DependentUpon>TheaterHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Theater\TheaterScreens.aspx.cs">
+      <DependentUpon>TheaterScreens.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Theater\TheaterScreens.aspx.designer.cs">
+      <DependentUpon>TheaterScreens.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UserDetails.aspx.cs">
       <DependentUpon>UserDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserDetails.aspx.designer.cs">
       <DependentUpon>UserDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\ClientHome.aspx.cs">
+      <DependentUpon>ClientHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\ClientHome.aspx.designer.cs">
+      <DependentUpon>ClientHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
