@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MovieDetails.aspx.cs" Inherits="ShowTime.Theater.MovieDetails" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MovieDetails.aspx.cs" Inherits="ShowTime.User.MovieDetails" %>
+
 
 <!DOCTYPE html>
 
@@ -10,7 +11,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    <asp:Table ID="Table1" runat="server"  Width="100%">
+        <asp:Table ID="Table1" runat="server"  Width="100%">
             <asp:TableRow Height="100px">
                 <asp:TableCell>
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/logo.png"/>
@@ -20,10 +21,8 @@
                 <asp:TableCell>
                     <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" Font-Names="Calibri" Font-Size="X-Large"  Width="100%">
                         <Items>
-                            <asp:MenuItem ImageUrl="~/Admin/home1.png" NavigateUrl="TheaterHome.aspx"></asp:MenuItem>
+                            <asp:MenuItem ImageUrl="~/Admin/home1.png" NavigateUrl="ClientHome.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Movies" NavigateUrl="MovieList.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Screens" NavigateUrl="TheaterScreens.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Shows" NavigateUrl="ShowList.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="PROFILE" NavigateUrl="UserInfo.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Sign Out" NavigateUrl="~/Logout.aspx"></asp:MenuItem>
                         </Items>
@@ -50,7 +49,7 @@
                 <asp:TableCell>
                     <asp:Table ID="Table3" runat="server" HorizontalAlign="Center">
                     <asp:TableRow>
-                        <asp:TableCell>
+                        <asp:TableCell HorizontalAlign="Right">
                             <asp:Label ID="Label1" runat="server" Text="Movie Name : " CssClass="labels"></asp:Label>
                         </asp:TableCell>
                         <asp:TableCell>
@@ -58,7 +57,7 @@
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
-                        <asp:TableCell>
+                        <asp:TableCell HorizontalAlign="Right">
                             <asp:Label ID="Label3" runat="server" Text="Genre : " CssClass="labels"></asp:Label>
                         </asp:TableCell>
                         <asp:TableCell>
@@ -66,7 +65,7 @@
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
-                        <asp:TableCell>
+                        <asp:TableCell HorizontalAlign="Right">
                             <asp:Label ID="Label4" runat="server" Text="Language : " CssClass="labels"></asp:Label>
                         </asp:TableCell>
                         <asp:TableCell>
@@ -74,7 +73,7 @@
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
-                        <asp:TableCell>
+                        <asp:TableCell HorizontalAlign="Right">
                             <asp:Label ID="Label5" runat="server" Text="Release Date : " CssClass="labels"></asp:Label>
                         </asp:TableCell>
                         <asp:TableCell>
@@ -82,7 +81,7 @@
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
-                        <asp:TableCell>
+                        <asp:TableCell HorizontalAlign="Right">
                             <asp:Label ID="Label6" runat="server" Text="Cast : " CssClass="labels"></asp:Label>
                         </asp:TableCell>
                         <asp:TableCell>
@@ -90,7 +89,7 @@
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
-                        <asp:TableCell>
+                        <asp:TableCell HorizontalAlign="Right">
                             <asp:Label ID="Label7" runat="server" Text="Director : " CssClass="labels"></asp:Label>
                         </asp:TableCell>
                         <asp:TableCell>
@@ -98,7 +97,7 @@
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
-                        <asp:TableCell>
+                        <asp:TableCell HorizontalAlign="Right">
                             <asp:Label ID="Label8" runat="server" Text="Duration : " CssClass="labels"></asp:Label>
                         </asp:TableCell>
                         <asp:TableCell>
@@ -106,15 +105,16 @@
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow >
-                        <asp:TableCell>
-                            <asp:Button ID="Button1" runat="server" Text="Add Show" OnClick="Button1_Click"/>
+                        <asp:TableCell HorizontalAlign="left" ColumnSpan="2">
+                            <br />
+                            <asp:Button ID="Button1" runat="server" Text="Book Now" BackColor="Red" ForeColor="White" OnClick="Button1_Click"/>
                         </asp:TableCell>
-                        </asp:TableRow>
+                    </asp:TableRow>
                 </asp:Table>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
-    </div>
+        </div>
     </form>
 </body>
 </html>

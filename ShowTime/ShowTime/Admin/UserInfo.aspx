@@ -13,7 +13,7 @@
     <asp:Table ID="Table1" runat="server"  Width="100%">
             <asp:TableRow Height="100px">
                 <asp:TableCell>
-                    <asp:Image ID="Image1" runat="server" ImageUrl="~/logo.png"/>
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/logo.png"/>                
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -24,6 +24,7 @@
                             <asp:MenuItem Text="Movies" NavigateUrl="MovieList.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Theaters" NavigateUrl="TheaterList.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="PROFILE" NavigateUrl="UserInfo.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Sign Out" NavigateUrl="~/Logout.aspx"></asp:MenuItem>
                         </Items>
                     </asp:Menu>
                 </asp:TableCell>

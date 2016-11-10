@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TheaterScreens.aspx.cs" Inherits="ShowTime.Theater.TheaterScreens" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserInfo.aspx.cs" Inherits="ShowTime.Theater.UserInfo" %>
 
 <!DOCTYPE html>
 
@@ -10,20 +10,19 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:Table ID="Table1" runat="server"  Width="100%">
+    <asp:Table ID="Table1" runat="server"  Width="100%">
             <asp:TableRow Height="100px">
                 <asp:TableCell>
-                    <asp:Image ID="Image1" runat="server" ImageUrl="~/logo.png"/>
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/logo.png"/>                
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" Font-Names="Calibri" Font-Size="X-Large"  Width="100%">
                         <Items>
-                            <asp:MenuItem ImageUrl="~/Admin/home1.png" NavigateUrl="TheaterHome.aspx"></asp:MenuItem>
+                            <asp:MenuItem ImageUrl="~/Admin/home1.png" NavigateUrl="AdminHome.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Movies" NavigateUrl="MovieList.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Screens" NavigateUrl="TheaterScreens.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Shows" NavigateUrl="ShowList.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Theaters" NavigateUrl="TheaterList.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="PROFILE" NavigateUrl="UserInfo.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Sign Out" NavigateUrl="~/Logout.aspx"></asp:MenuItem>
                         </Items>
@@ -37,9 +36,6 @@
                 <asp:TableCell HorizontalAlign="Center">
                     <asp:TextBox ID="TextBox1" runat="server" TextMode="search" placeholder="Search Here..."></asp:TextBox> 
                     <asp:Button ID="Button3" runat="server" Text="Search"/>
-                </asp:TableCell>
-                <asp:TableCell HorizontalAlign="Right">
-                    <asp:Button ID="Button1" runat="server" Text="Add Screen" OnClick="Button1_Click"/>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>                          

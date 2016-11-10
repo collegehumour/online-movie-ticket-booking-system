@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ClientHome.aspx.cs" Inherits="ShowTime.User.ClientHome" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShowSelection.aspx.cs" Inherits="ShowTime.User.ShowSelection" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link rel="stylesheet" type="text/css" href="../CSS/Style.css" runat="server"/>    
+    <link rel="stylesheet" type="text/css" href="../CSS/Style.css" runat="server"/>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -21,7 +21,7 @@
                         <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" Font-Names="Calibri" Font-Size="X-Large"  Width="100%">
                             <Items>
                                 <asp:MenuItem ImageUrl="~/Admin/home1.png" NavigateUrl="TheaterHome.aspx"></asp:MenuItem>
-                                <asp:MenuItem Text="Movies" NavigateUrl="MovieList.aspx"></asp:MenuItem>                            
+                                <asp:MenuItem Text="Movies" NavigateUrl="MovieList.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="PROFILE" NavigateUrl="UserInfo.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Sign Out" NavigateUrl="~/Logout.aspx"></asp:MenuItem>
                             </Items>
@@ -33,12 +33,18 @@
             <asp:Table ID="Table2" runat="server" Width="100%">
                 <asp:TableRow>
                     <asp:TableCell HorizontalAlign="Center">
-                        <asp:TextBox ID="TextBox1" runat="server" TextMode="search" placeholder="Search Here..."></asp:TextBox> 
+                        <asp:TextBox ID="TextBox2" runat="server" TextMode="search" placeholder="Search Here..."></asp:TextBox> 
                         <asp:Button ID="Button3" runat="server" Text="Search"/>
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>                          
             </div>
+
+        <asp:Table ID="Table3" runat="server" HorizontalAlign="Center">
+            <asp:TableRow>
+
+            </asp:TableRow>
+        </asp:Table>
     </div>
     </form>
 </body>
