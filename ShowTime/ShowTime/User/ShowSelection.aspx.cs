@@ -5,14 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ShowTime.Theater
+namespace ShowTime.User
 {
-    public partial class ShowList : System.Web.UI.Page
+    public partial class ShowSelection : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
     }
 }

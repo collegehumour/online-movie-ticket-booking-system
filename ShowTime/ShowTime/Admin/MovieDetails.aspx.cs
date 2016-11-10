@@ -25,7 +25,9 @@ namespace ShowTime.Admin
             Label2.Text=rdr["name"].ToString();
             Label10.Text = rdr["genre"].ToString();
             Label11.Text = rdr["language"].ToString();
-            Label9.Text = rdr["release_date"].ToString();
+            string rdate = rdr["release_date"].ToString();
+            rdate = rdate.Substring(0, 10);
+            Label9.Text = rdate.ToString();
             Label12.Text = rdr["cast"].ToString();
             Label13.Text = rdr["director"].ToString();
             Label14.Text = rdr["duration"].ToString();

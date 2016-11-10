@@ -93,7 +93,9 @@ namespace ShowTime.Theater
             }
 
             String[] selected = new String[4];
-            int[] val = new int[4];
+            int[] val = new int[4]{0,0,0,0};
+            
+
             int h = 0;
             foreach (int i in ListBox1.GetSelectedIndices())
             {
@@ -103,74 +105,139 @@ namespace ShowTime.Theater
             if (h >= 4)
             {
                 val[3] = (int)(TextBox8.Text.ToUpper()[0]) - 64;
-                TableRow row = new TableRow();
-                TableCell cell = new TableCell();
-                cell.Text = selected[3];
-                cell.ColumnSpan = c;
-                row.Cells.Add(cell);
-                Table5.Rows.AddAt(val[3], row);
             }
             if (h >= 3)
             {
                 val[2] = (int)(TextBox7.Text.ToUpper()[0]) - 64;
-                TableRow row = new TableRow();
-                TableCell cell = new TableCell();
-                cell.Text = selected[2];
-                cell.ColumnSpan = c;
-                cell.HorizontalAlign = HorizontalAlign.Center;
-                cell.Font.Bold = true;
-                row.Cells.Add(cell);
-                Table5.Rows.AddAt(val[2], row);
             }
             if (h >= 2)
             {
                 val[1] = (int)(TextBox6.Text.ToUpper()[0]) - 64;
-                TableRow row = new TableRow();
-                TableCell cell = new TableCell();
-                cell.Text = selected[1];
-                cell.ColumnSpan = c;
-                cell.HorizontalAlign = HorizontalAlign.Center;
-                cell.Font.Bold = true;
-                row.Cells.Add(cell);
-                Table5.Rows.AddAt(val[1], row);
             }
             if (h >= 1)
             {
                 val[0] = (int)(TextBox5.Text.ToUpper()[0]) - 64;
+            }
+
+            int itemp;
+            string stemp;
+            for (int u = 0; u < h - 1; u++)
+            {
+                for (int v = 0; v < h - u - 1; v++)
+                {
+                    if (val[v] > val[v + 1])
+                    {
+                        itemp = val[v];
+                        val[v] = val[v + 1];
+                        val[v + 1] = itemp;
+                        stemp = selected[v];
+                        selected[v] = selected[v + 1];
+                        selected[v + 1] = stemp;
+                    }
+                }
+            }
+
+            for (int g = h-1; g>=0; g--)
+            {
                 TableRow row = new TableRow();
                 TableCell cell = new TableCell();
-                cell.Text = selected[0];
+                cell.Text = selected[g];
                 cell.ColumnSpan = c;
                 cell.HorizontalAlign = HorizontalAlign.Center;
                 cell.Font.Bold = true;
                 row.Cells.Add(cell);
-                Table5.Rows.AddAt(val[0], row);
+                Table5.Rows.AddAt(val[g], row);               
             }
             
-        }
-
-        protected void Button4_Click(object sender, EventArgs e)
-        {
+            
             ConnectDB cdb = new ConnectDB();
             cdb.connectDataBase();
             SqlConnection con = cdb.connect;
             con.Open();
             SqlCommand com = cdb.command;
-            
+
             com.CommandText = "insert into [dbo].[screen] (screen_no,user_id) values (@screen_no,@user_id)";
-            com.Parameters.AddWithValue("@screen_no",TextBox2.Text);
-            com.Parameters.AddWithValue("@user_id",Session["user_id"]);
-            com.ExecuteNonQuery();
-
-
-
-
-
-            com.CommandText = "insert into [dbo].[class] (seat_class,screen_id) values (@seat_class,@screen_id)";
             com.Parameters.AddWithValue("@screen_no", TextBox2.Text);
             com.Parameters.AddWithValue("@user_id", Session["user_id"]);
             com.ExecuteNonQuery();
-            
+
+            com.CommandText = "SELECT screen_id FROM [dbo].[screen] WHERE screen_no=@screen_no1 AND user_id=@user_id1";
+            com.Parameters.AddWithValue("@screen_no1", TextBox2.Text);
+            com.Parameters.AddWithValue("@user_id1", Session["user_id"]);
+            SqlDataReader rdr = com.ExecuteReader();
+            rdr.Read();
+            String screen_id = rdr["screen_id"].ToString();
+            rdr.Close();
+
+            foreach (int i in ListBox1.GetSelectedIndices())
+            {
+                com.CommandText = "insert into [dbo].[class] (seat_class,screen_id) values ('" + ListBox1.Items[i].ToString() + "','" + screen_id + "')";
+                com.ExecuteNonQuery();
+            }
+
+            for (int z = 0; z < h; z++)
+            {
+                com.CommandText = "SELECT class_id FROM [dbo].[class] WHERE seat_class='" + selected[z] + "' AND screen_id='" + screen_id + "'";
+                SqlDataReader rdr1 = com.ExecuteReader();
+                rdr1.Read();
+                String class_id = rdr1["class_id"].ToString();
+                rdr1.Close();
+
+                int start = val[z];
+                int end = 0;
+                if (z == h - 1)
+                    end = r+1;
+                else
+                    end = val[z+1];
+
+                while(start!=end)
+                {
+                    for (int d = 1; d <= c; d++)
+                    {
+                        com.CommandText = "INSERT INTO [dbo].[seat](seat_no,class_id) VALUES ('" + Convert.ToChar(start + 64).ToString() +d.ToString() + "','" + class_id + "')";
+                        com.ExecuteNonQuery();
+                    }
+                    start++;    
+                }
+            }                
+            con.Close();
         }
+
+        protected void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            int s_no = Int32.Parse(TextBox2.Text);
+            if (s_no > 5 || s_no < 1)
+            {
+                Label12.Visible = true;
+                TextBox2.Text = "";
+                return;
+            }
+            else
+            {
+                ConnectDB cdb = new ConnectDB();
+                cdb.connectDataBase();
+                SqlConnection con = cdb.connect;
+                con.Open();
+                SqlCommand com = cdb.command;
+                com.CommandText = "SELECT [screen_no] from [screen] where ([user_id] = @user_id3)";
+                com.Parameters.AddWithValue("@user_id3", Session["user_id"]);
+                SqlDataReader rd = com.ExecuteReader();
+                while (rd.Read())
+                {
+                    if (rd["screen_no"].ToString().Equals(s_no.ToString()))
+                    {
+                        Label12.Visible = true;
+                        TextBox2.Text = "";
+                        return;
+                    }
+                    else 
+                    {
+                        Label12.Visible = false;
+                    }
+                }
+                con.Close();
+            }
+        }
+
     }
 }

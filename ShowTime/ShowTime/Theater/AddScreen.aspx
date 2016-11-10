@@ -51,7 +51,9 @@
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell>
-                            <asp:TextBox ID="TextBox2" runat="server" TextMode="Number"  CssClass="fileupload"></asp:TextBox>
+                            <asp:TextBox ID="TextBox2" runat="server" TextMode="Number" AutoPostBack="true" OnTextChanged="TextBox2_TextChanged"  CssClass="fileupload"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="TextBox2" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+                            <asp:Label ID="Label12" runat="server" ForeColor="Red" Text="Screen no is Occupied Or Not Valid.." CssClass="labels" Visible="false"></asp:Label>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
@@ -63,6 +65,7 @@
                         <asp:TableCell>
                             <asp:Label ID="Label4" runat="server" Text="A to " ForeColor="Green"></asp:Label>
                             <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                                <asp:RegularExpressionValidator ControlToValidate="TextBox4" ValidationExpression="[A-Z]" ID="RegularExpressionValidator1" runat="server" ErrorMessage="A to Z only"></asp:RegularExpressionValidator>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
@@ -74,6 +77,7 @@
                         <asp:TableCell>
                             <asp:Label ID="Label6" runat="server" Text="1 to " ForeColor="Green"></asp:Label>
                             <asp:TextBox ID="TextBox3" runat="server" TextMode="Number" CssClass="fileupload"></asp:TextBox>
+                            <asp:RangeValidator ID="RangeValidator2" ControlToValidate="TextBox3" Type="Integer" MinimumValue="10" MaximumValue="30"  runat="server" ErrorMessage="10 to 30"></asp:RangeValidator>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
@@ -142,8 +146,8 @@
                 </asp:Table>
             </asp:View>
             <asp:View ID="View3" runat="server" OnActivate="View3_Activate">
+                <asp:Label ID="Label11" runat="server" Text="Screen is Added Successfully." ForeColor="Green" CssClass="labels"></asp:Label>
                 <asp:Table ID="Table5" runat="server" HorizontalAlign="Center"></asp:Table>
-                <asp:Button ID="Button4" runat="server" Text="Button" OnClick="Button4_Click"/>
             </asp:View>
         </asp:MultiView>
     </div>

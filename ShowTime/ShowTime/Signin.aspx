@@ -16,7 +16,7 @@
                      <asp:Label ID="Label3" runat="server" Text="The username or password you have entered is incorrect." Visible="false" ForeColor="Red"></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
-            <asp:TableRow >
+            <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="Label1" runat="server" Text="Username : " CssClass="labels" focus="true"></asp:Label>
                 </asp:TableCell>
@@ -40,7 +40,7 @@
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage=" * Invalid" ForeColor="Red" ControlToValidate="TextBox2" ValidationExpression="[a-zA-Z0-9]{6,10}"></asp:RegularExpressionValidator>                
                 </asp:TableCell>
             </asp:TableRow>
-            <asp:TableRow >
+            <asp:TableRow Height="90px">
                 <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
                     <asp:Button ID="Button1" runat="server" Text="Sign In" OnClick="Button1_Click"/>
                 </asp:TableCell>

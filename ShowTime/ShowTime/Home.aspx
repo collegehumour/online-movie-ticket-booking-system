@@ -10,10 +10,24 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:Button ID="Button1" runat="server" Text="SIGN IN" OnClick="Button1_Click" />
-        <br />
-        <br />
-        <asp:Button ID="Button2" runat="server" Text="SIGN UP" OnClick="Button2_Click" />
+
+        <asp:Table ID="Table1" runat="server" HorizontalAlign="Center" Width="100%">
+            <asp:TableRow Height="80px">
+                <asp:TableCell HorizontalAlign="Center">
+                    <asp:Button ID="Button1" runat="server" Text="SIGN IN" OnClick="Button1_Click" />
+                </asp:TableCell>                
+            </asp:TableRow>
+            
+            <asp:TableRow Height="80px">
+                <asp:TableCell HorizontalAlign="Center">
+                    <asp:Button ID="Button2" runat="server" Text="SIGN UP" OnClick="Button2_Click" />
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+
+      
+        
+        
     
     </div>
     </form>

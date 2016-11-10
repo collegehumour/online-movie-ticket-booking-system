@@ -249,7 +249,12 @@
     <Content Include="Theater\TheaterHome.aspx" />
     <Content Include="Theater\TheaterScreens.aspx" />
     <Content Include="UserDetails.aspx" />
+    <Content Include="User\CityTheaterSelection.aspx" />
     <Content Include="User\ClientHome.aspx" />
+    <Content Include="User\MovieDetails.aspx" />
+    <Content Include="User\MovieList.aspx" />
+    <Content Include="User\ShowSelection.aspx" />
+    <Content Include="User\UserInfo.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -562,12 +567,47 @@
     <Compile Include="UserDetails.aspx.designer.cs">
       <DependentUpon>UserDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\CityTheaterSelection.aspx.cs">
+      <DependentUpon>CityTheaterSelection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CityTheaterSelection.aspx.designer.cs">
+      <DependentUpon>CityTheaterSelection.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\ClientHome.aspx.cs">
       <DependentUpon>ClientHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\ClientHome.aspx.designer.cs">
       <DependentUpon>ClientHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\MovieDetails.aspx.cs">
+      <DependentUpon>MovieDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\MovieDetails.aspx.designer.cs">
+      <DependentUpon>MovieDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\MovieList.aspx.cs">
+      <DependentUpon>MovieList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\MovieList.aspx.designer.cs">
+      <DependentUpon>MovieList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\ShowSelection.aspx.cs">
+      <DependentUpon>ShowSelection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\ShowSelection.aspx.designer.cs">
+      <DependentUpon>ShowSelection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserInfo.aspx.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UserInfo.aspx.designer.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
