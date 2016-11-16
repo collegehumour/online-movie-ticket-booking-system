@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
         <link rel="stylesheet" type="text/css" href="../CSS/Style.css" runat="server"/>
-    <title></title>
+    <title>Add Movie</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -23,29 +23,24 @@
                             <asp:MenuItem ImageUrl="~/Admin/home1.png" NavigateUrl="AdminHome.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Movies" NavigateUrl="MovieList.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Theaters" NavigateUrl="TheaterList.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="PROFILE" NavigateUrl="UserInfo.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Sign Out" NavigateUrl="~/Logout.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Profile" NavigateUrl="UserInfo.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Sign Out" NavigateUrl="~/Home.aspx"></asp:MenuItem>
                         </Items>
                     </asp:Menu>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
-        <div class="search">
-        <asp:Table ID="Table3" runat="server" Width="100%">
-            <asp:TableRow>
-                <asp:TableCell HorizontalAlign="Center">
-                    <asp:TextBox ID="TextBox6" runat="server" TextMode="search" placeholder="Search Here..."></asp:TextBox> 
-                    <asp:Button ID="Button3" runat="server" Text="Search"/>
-                </asp:TableCell>
-            </asp:TableRow>
-        </asp:Table>                          
-        </div>
         <asp:Table ID="Table1" runat="server" HorizontalAlign="Center">
                     <asp:TableRow>
                         <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
                             <asp:Label ID="Label2" runat="server" Text="Add Movie" CssClass="labels"></asp:Label>
                         </asp:TableCell>
                     </asp:TableRow>
+                        <asp:TableRow Height="80px">
+                            <asp:TableCell HorizontalAlign="Center">
+                                <asp:Label ID="Label21" runat="server" CssClass="labels" Text="Enter Valid Date" ForeColor="Red" Visible="false"></asp:Label>
+                            </asp:TableCell>
+                        </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell>
                             <asp:Label ID="Label1" runat="server" Text="Movie Name : " CssClass="labels"></asp:Label>
@@ -98,7 +93,7 @@
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell>
-                            <asp:TextBox ID="TextBox2" runat="server" TextMode="Date"></asp:TextBox>
+                            <asp:TextBox ID="TextBox2" runat="server" TextMode="Date" AutoPostBack="true" OnTextChanged="TextBox2_TextChanged"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="TextBox2"></asp:RequiredFieldValidator>
                             <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="* Invalid Date" ForeColor="Red" ControlToValidate="TextBox2" Operator="GreaterThan" Type="Date" ValueToCompare="02-10-2016"></asp:CompareValidator>
                         </asp:TableCell>

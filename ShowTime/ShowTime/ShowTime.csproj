@@ -38,6 +38,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=16.1.1.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Documents\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -183,12 +187,18 @@
     <Content Include="Admin\Posters\9.png" />
     <Content Include="Admin\TheaterList.aspx" />
     <Content Include="Admin\UserInfo.aspx" />
+    <Content Include="AdPost\1.png" />
+    <Content Include="AdPost\2.png" />
+    <Content Include="AdPost\3.png" />
+    <Content Include="AdPost\4.png" />
+    <Content Include="AdPost\5.png" />
+    <Content Include="AdPost\6.png" />
+    <Content Include="Ads.xml" />
     <Content Include="AfterRegistration.aspx" />
     <Content Include="App_Data\ShowTime_DB.mdf" />
     <Content Include="App_Data\ShowTime_DB_log.ldf">
       <DependentUpon>ShowTime_DB.mdf</DependentUpon>
     </Content>
-    <Content Include="Composemail.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -196,14 +206,15 @@
     <Content Include="CSS\Style.css" />
     <Content Include="Error.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="forgetPass.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="logo.png" />
-    <Content Include="Logout.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <None Include="Properties\PublishProfiles\showtimeRK.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -245,17 +256,16 @@
     <Content Include="Theater\gchair.png" />
     <Content Include="Theater\MovieDetails.aspx" />
     <Content Include="Theater\MovieList.aspx" />
-    <Content Include="Theater\rchair.png" />
     <Content Include="Theater\ShowList.aspx" />
     <Content Include="Theater\TheaterHome.aspx" />
     <Content Include="Theater\TheaterScreens.aspx" />
     <Content Include="Theater\UserInfo.aspx" />
     <Content Include="UserDetails.aspx" />
+    <Content Include="User\AfterBooking.aspx" />
     <Content Include="User\CityTheaterSelection.aspx" />
     <Content Include="User\ClientHome.aspx" />
     <Content Include="User\MovieDetails.aspx" />
     <Content Include="User\MovieList.aspx" />
-    <Content Include="User\ShowSelection.aspx" />
     <Content Include="User\UserInfo.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -443,13 +453,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Composemail.aspx.cs">
-      <DependentUpon>Composemail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Composemail.aspx.designer.cs">
-      <DependentUpon>Composemail.aspx</DependentUpon>
-    </Compile>
+    <Compile Include="SendEmail.cs" />
     <Compile Include="ConnectDB.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -472,6 +476,13 @@
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
+    <Compile Include="forgetPass.aspx.cs">
+      <DependentUpon>forgetPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forgetPass.aspx.designer.cs">
+      <DependentUpon>forgetPass.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -481,13 +492,6 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Logout.aspx.cs">
-      <DependentUpon>Logout.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Logout.aspx.designer.cs">
-      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -583,6 +587,13 @@
     <Compile Include="UserDetails.aspx.designer.cs">
       <DependentUpon>UserDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\AfterBooking.aspx.cs">
+      <DependentUpon>AfterBooking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\AfterBooking.aspx.designer.cs">
+      <DependentUpon>AfterBooking.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\CityTheaterSelection.aspx.cs">
       <DependentUpon>CityTheaterSelection.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -610,13 +621,6 @@
     </Compile>
     <Compile Include="User\MovieList.aspx.designer.cs">
       <DependentUpon>MovieList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="User\ShowSelection.aspx.cs">
-      <DependentUpon>ShowSelection.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\ShowSelection.aspx.designer.cs">
-      <DependentUpon>ShowSelection.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\UserInfo.aspx.cs">
       <DependentUpon>UserInfo.aspx</DependentUpon>

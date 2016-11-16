@@ -5,11 +5,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
         <link rel="stylesheet" type="text/css" href="CSS/Style.css" runat="server"/>
-    <title></title>
+    <title>Sign Up</title>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
+        <asp:Table ID="Table2" runat="server"  Width="100%">
+            <asp:TableRow Height="100px">
+                <asp:TableCell>
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/logo.png"/>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" Font-Names="Calibri" Font-Size="X-Large"  Width="100%">
+                        <Items>
+                            <asp:MenuItem ImageUrl="~/Admin/home1.png" NavigateUrl="Home.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="SIGN IN" NavigateUrl="Signin.aspx"></asp:MenuItem>                           
+                        </Items>
+                    </asp:Menu>
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+
         <asp:Table ID="Table1" runat="server" HorizontalAlign="Center">
             <asp:TableRow>
                 <asp:TableCell>

@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Movie Details</title>
     <link rel="stylesheet" type="text/css" href="../CSS/Style.css" runat="server"/>
 </head>
 <body>
@@ -24,23 +24,13 @@
                             <asp:MenuItem Text="Movies" NavigateUrl="MovieList.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Screens" NavigateUrl="TheaterScreens.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Shows" NavigateUrl="ShowList.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="PROFILE" NavigateUrl="UserInfo.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Sign Out" NavigateUrl="~/Logout.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Profile" NavigateUrl="UserInfo.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Sign Out" NavigateUrl="~/Home.aspx"></asp:MenuItem>
                         </Items>
                     </asp:Menu>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
-        <div class="search">
-        <asp:Table ID="Table2" runat="server" Width="100%">
-            <asp:TableRow>
-                <asp:TableCell HorizontalAlign="Center">
-                    <asp:TextBox ID="TextBox1" runat="server" TextMode="search" placeholder="Search Here..."></asp:TextBox> 
-                    <asp:Button ID="Button3" runat="server" Text="Search"/>
-                </asp:TableCell>
-            </asp:TableRow>
-        </asp:Table>                          
-        </div>
         <asp:ImageButton ID="ImageButton1" runat="server" OnClientClick="JavaScript: window.history.back(1); return false;" ImageUrl="~/Admin/back.png"/>
         <asp:Table ID="Table4" runat="server" HorizontalAlign="Center" Width="100%">
             <asp:TableRow HorizontalAlign="Center">

@@ -12,6 +12,11 @@ namespace ShowTime.Theater
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user_id"] == null || !Session["role_name"].Equals("Theater User"))
+            {
+                Response.Redirect("~/Home.aspx");
+            }        
+
             String movie_id = Request.QueryString["id"];
             ConnectDB cdb = new ConnectDB();
             cdb.connectDataBase();
@@ -31,7 +36,7 @@ namespace ShowTime.Theater
             Label9.Text = rdate.ToString();
             Label12.Text = rdr["cast"].ToString();
             Label13.Text = rdr["director"].ToString();
-            Label14.Text = rdr["duration"].ToString();
+            Label14.Text = rdr["duration"].ToString()+ " Minutes";
             con.Close();
             Image2.ImageUrl = "~/Admin/Posters/" + movie_id + ".png";
 

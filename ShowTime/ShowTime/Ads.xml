@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Advertisements>
+  <Ad>
+    <ImageUrl>~/AdPost/1.png</ImageUrl>
+    <AlternateText>Movies</AlternateText>
+    <Impressions>3</Impressions>
+    <Keyword>small</Keyword>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/AdPost/2.png</ImageUrl>
+    <AlternateText>Movies</AlternateText>
+    <Impressions>3</Impressions>
+    <Keyword>small</Keyword>
+  </Ad>
+	<Ad>
+    <ImageUrl>~/AdPost/3.png</ImageUrl>
+    <AlternateText>Movies</AlternateText>
+    <Impressions>3</Impressions>
+    <Keyword>small</Keyword>
+  </Ad>
+<Ad>
+    <ImageUrl>~/AdPost/4.png</ImageUrl>
+    <AlternateText>C-Movies</AlternateText>
+    <Impressions>3</Impressions>
+    <Keyword>small</Keyword>
+  </Ad>
+<Ad>
+    <ImageUrl>~/AdPost/5.png</ImageUrl>
+    <AlternateText>Movies</AlternateText>
+    <Impressions>3</Impressions>
+    <Keyword>small</Keyword>
+  </Ad>
+<Ad>
+    <ImageUrl>~/AdPost/6.png</ImageUrl>
+    <AlternateText>Movies</AlternateText>
+    <Impressions>3</Impressions>
+    <Keyword>small</Keyword>
+  </Ad>
+</Advertisements>
+ 

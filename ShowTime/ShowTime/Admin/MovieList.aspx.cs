@@ -12,7 +12,10 @@ namespace ShowTime.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            if (Session["user_id"] == null || !Session["role_name"].Equals("Admin"))
+            {
+                Response.Redirect("~/Home.aspx");
+            }        
         }
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)

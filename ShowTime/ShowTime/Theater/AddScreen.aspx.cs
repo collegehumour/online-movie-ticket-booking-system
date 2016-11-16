@@ -13,7 +13,10 @@ namespace ShowTime.Theater
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["user_id"] == null || !Session["role_name"].Equals("Theater User"))
+            {
+                Response.Redirect("~/Home.aspx");
+            }        
         }
         protected void View2_Activate(object sender, EventArgs e)
         {
@@ -236,6 +239,22 @@ namespace ShowTime.Theater
                     }
                 }
                 con.Close();
+            }
+        }
+
+        protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selected = 0;
+            foreach (int i in ListBox1.GetSelectedIndices())
+            {
+                selected++;
+            }
+            if (selected > 4)
+            {
+                foreach (int i in ListBox1.GetSelectedIndices())
+                {
+                    ListBox1.Items[i].Selected = false;
+                }
             }
         }
 

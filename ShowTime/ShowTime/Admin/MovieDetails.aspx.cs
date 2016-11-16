@@ -12,6 +12,12 @@ namespace ShowTime.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Session["user_id"] == null || !Session["role_name"].Equals("Admin"))
+            {
+                Response.Redirect("~/Home.aspx");
+            }        
+
             String movie_id = Request.QueryString["id"];
             ConnectDB cdb = new ConnectDB();
             cdb.connectDataBase();
@@ -30,7 +36,7 @@ namespace ShowTime.Admin
             Label9.Text = rdate.ToString();
             Label12.Text = rdr["cast"].ToString();
             Label13.Text = rdr["director"].ToString();
-            Label14.Text = rdr["duration"].ToString();
+            Label14.Text = rdr["duration"].ToString() + " Minutes";
             con.Close();
             Image2.ImageUrl = "~/Admin/Posters/"+movie_id+".png";
         }
@@ -39,19 +45,6 @@ namespace ShowTime.Admin
         {
             Session["movie_id"] = Request.QueryString["id"];
             Response.Redirect("AddMovie.aspx");
-        }
-
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            String movie_id = Request.QueryString["id"];
-            ConnectDB cdb = new ConnectDB();
-            cdb.connectDataBase();
-            SqlConnection con = cdb.connect;
-            con.Open();
-            SqlCommand com = cdb.command;
-            com.CommandText = "DELETE FROM movie WHERE movie_id='" + movie_id + "'";
-            com.ExecuteNonQuery();
-            con.Close();
         }
     }
 }

@@ -58,7 +58,7 @@ textarea {
     font-size:larger;
 }
 input[type=submit] {
-    background-color: #4CAF50;
+    background-color: rgb(97,97,97);
     color: white;
     padding: 14px 30px;
     border: none;
@@ -68,7 +68,8 @@ input[type=submit] {
     font-size:x-large;
 }
 input[type=submit]:hover {
-    background-color: #f65605;
+    background-color: rgb(251,192,45);
+    color:#000000;
 }
 select{
     width: 100%;
@@ -89,25 +90,20 @@ table {
     display:grid;
 }
 div {
-    background-color:#f2f2f2;
+    background-color:#ffffff;
     width:100%;
 }
 .labels {    
     font-family:Georgia;
     font-size:x-large;
 }
-a:link {
+.name a:link {
     text-decoration: none;
     font-family:Georgia;
     font-size:x-large;
     color:black;
 }
-a:visited {
-    text-decoration: none;
-    font-family:Georgia;
-    font-size:x-large;
-    color:black;
-}
+
 .fileupload {
     width: 100%;
     padding: 10px 20px;
@@ -121,36 +117,45 @@ a:visited {
     background-color:white;
 }
 
+
 ul {
     list-style-type:none;
     overflow: hidden;
-    width:100%!important;
-    background-color: rgba(255,0,0,0.3);
-    border:solid 1px;
-    border-color:rgba(255,0,0,0.5);
+    width:99.7%!important;
+    background-color: rgb(251,192,45);
+    border: 3px solid rgb(251,192,45);
 }
 li {
-        padding:10px 18px;
+    height:50px;
+    width:120px;       
 }
 
 li:last-child {
     float:right!important;
-    background-color:rgba(255,0,0,0.4);
+    background-color:rgb(97,97,97);
+    border-radius:4px;
 }
 li:hover:not(.active) {
-    background-color: rgba(255,0,0,0.6);
+    background-color: rgba(39,45,78,0.9);
 }
 li a {
     text-align: center;
-    height:30px;
+    padding:10px 18px!important;
 }
 li a:hover:not(.active) {
     color:aliceblue;
+}
+li:last-child a{
+    color:#ffffff;  
+}
+li:hover:last-child{
+    background-color:#b71c1c;
 }
 
 .active {
     background-color: #4CAF50;
 }
+
 .listview {
     align-self:center;
     align-content:center;
@@ -164,24 +169,27 @@ li a:hover:not(.active) {
 } 
 
 .search {
-    background-color:rgba(0,0,255,0.3);
+    background-color:rgb(39,45,78);
+    margin-bottom:20px;
 }
 .search input[type=search] {
     padding:8px 15px;
-    background:rgba(50, 50, 50, 0.2);
-    border:1px solid #207cca;
+    background:#ffffff;
+    border:1px solid rgb(39,45,78);
     width:300px;
     font-family:Calibri;
     font-size:18px;
+
     }
 .search input[type=submit] {
                 padding:8px 15px;
-                border:2px solid #207cca;
-                background-color:#207cca;
-                color:#fafafa;
+                border:2px solid rgb(39,45,78);
+                background-color:rgb(251,192,45);
+                color:#000000;
                 font-size:18px;
 }
 .search input[type=submit]:hover  {
-                background-color:#fafafa;
-                color:#207cca;
+                background-color:rgb(97,97,97);
+                color:#ffffff;
 }
+

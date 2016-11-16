@@ -5,11 +5,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link rel="stylesheet" type="text/css" href="CSS/Style.css" runat="server"/>
-    <title></title>
+    <title>Sign In</title>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+        <div>
+       
+        <asp:Table ID="Table2" runat="server"  Width="100%">
+            <asp:TableRow Height="100px">
+                <asp:TableCell>
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/logo.png"/>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" Font-Names="Calibri" Font-Size="X-Large"  Width="100%">
+                        <Items>
+                            <asp:MenuItem ImageUrl="~/Admin/home1.png" NavigateUrl="Home.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="SIGN UP" NavigateUrl="Signup.aspx"></asp:MenuItem>                           
+                        </Items>
+                    </asp:Menu>
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+
+    
         <asp:Table ID="Table1" runat="server" HorizontalAlign="Center">
             <asp:TableRow>
                 <asp:TableCell ColumnSpan="2">
@@ -43,6 +63,7 @@
             <asp:TableRow Height="90px">
                 <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
                     <asp:Button ID="Button1" runat="server" Text="Sign In" OnClick="Button1_Click"/>
+                    <asp:HyperLink ID="HyperLink1" runat="server"  NavigateUrl="forgetPass.aspx" Text="Forget Password"></asp:HyperLink>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>

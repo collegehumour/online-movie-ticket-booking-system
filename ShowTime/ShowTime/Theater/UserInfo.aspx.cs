@@ -11,7 +11,10 @@ namespace ShowTime.Theater
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["user_id"] == null || !Session["role_name"].Equals("Theater User"))
+            {
+                Response.Redirect("~/Home.aspx");
+            }        
         }        
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Net.Mail;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
@@ -17,14 +16,39 @@ namespace ShowTime
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.QueryString["a"] == "1")
+            {
+                Label9.Text = "Error in Sending mail..Plz Signup Again.";
+                Label9.ForeColor = System.Drawing.Color.Red;
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             String msg="";
             try{
+
+                SendEmail se = new SendEmail();
+
+                string user_id = TextBox2.Text.ToString();
+
+                string encrypteduserid = HttpUtility.UrlEncode(Encrypt(user_id));
+
+                msg = "http://localhost:46662/AfterRegistration.aspx?id" + "=" + encrypteduserid;
+
+                string link = "Please Click the link to verify Your EmailId . . .<br><a href = " + msg + ">Click_here</a>";
+
+                Label9.ForeColor = System.Drawing.Color.Green;
+
+                Label9.Text = se.sendEmail(TextBox3.Text, "ShowTime : Verify Your Account", link, "Please verify Your Account..!!");
+
+                if (Label9.Text.Equals("Error sending email.!!!"))
+                {
+                    throw new Exception();
+                }
+
                 ConnectDB cdb = new ConnectDB();
+                
                 cdb.connectDataBase();
                 SqlConnection con = cdb.connect;
                 con.Open();
@@ -38,25 +62,10 @@ namespace ShowTime
                 com.Parameters.AddWithValue("@role_name", DropDownList1.SelectedItem.Text);
                 com.ExecuteNonQuery();
                 con.Close();
-
-                string user_id = TextBox2.Text.ToString();
-                
-                string encrypteduserid = HttpUtility.UrlEncode(Encrypt(user_id));
-                
-                msg = "http://localhost:46662/AfterRegistration.aspx?id" + "=" + encrypteduserid;
-
-                string link = "Please Click the link to verify Your EmailId . . .<br><a href = " + msg + ">Click_here</a>";
-                
-                Label9.ForeColor = System.Drawing.Color.Green;
-
-                Label9.Text = SendEmail(TextBox3.Text,link);
-
-                //Response.Redirect("AfterRegistration.aspx");
-
                 
             }
             catch (Exception exc) {
-                Label1.Text = exc.Message;
+                Response.Redirect("~/Signup.aspx?a=1");
             }
         }
         protected void TextBox2_TextChanged(object sender, EventArgs e)
@@ -69,7 +78,7 @@ namespace ShowTime
                 con.Open();
                 SqlCommand com = cdb.command;
 
-                com.CommandText = "SELECT user_id from [dbo].[temp_user] where user_id =@user_id";
+                com.CommandText = "SELECT user_id from [dbo].[user] where user_id =@user_id UNION SELECT user_id from [dbo].[temp_user] where user_id =@user_id";
                 com.Parameters.AddWithValue("@user_id", TextBox2.Text);
 
                 SqlDataReader rdr;
@@ -85,6 +94,7 @@ namespace ShowTime
                     Label7.Visible = false;
                     TextBox3.Focus();
                 }
+                rdr.Close();
                 con.Close();
 
             }
@@ -104,7 +114,7 @@ namespace ShowTime
                 con.Open();
                 SqlCommand com = cdb.command;
 
-                com.CommandText = "SELECT user_id from [dbo].[temp_user] where email =@email and role_name=@role_name";
+                com.CommandText = "SELECT user_id from [dbo].[user] where email =@email and role_name=@role_name";
                 com.Parameters.AddWithValue("@email", TextBox3.Text);
                 com.Parameters.AddWithValue("@role_name", DropDownList1.SelectedItem.Text);
 
@@ -150,36 +160,6 @@ namespace ShowTime
                 }
             }
             return clearText;
-        }
-        protected string SendEmail(string toAddress, String messag)
-        {
-            string result = "Verification mail Sent Successfully.. Please verify Your Account..!!";
-
-            string senderID = "Hackrooks@gmail.com";
-            const string senderPassword = "HackRooks@123";
-
-            try
-            {
-                SmtpClient smtp = new SmtpClient
-                {
-                    Host = "smtp.gmail.com",
-                    Port = 587,
-                    EnableSsl = true,
-                    DeliveryMethod = SmtpDeliveryMethod.Network,
-                    Credentials = new System.Net.NetworkCredential(senderID, senderPassword),
-                    Timeout = 30000,
-
-                };
-                MailMessage message = new MailMessage(senderID, toAddress, "ShowTime : Verify Your Account",messag);
-                message.IsBodyHtml = true;
-                smtp.Send(message);
-            }
-            catch (Exception ex)
-            {
-                result = "Error sending email.!!!";
-            }
-
-            return result;
         }
     }
 }

@@ -12,6 +12,10 @@ namespace ShowTime.Theater
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user_id"] == null || !Session["role_name"].Equals("Theater User"))
+            {
+                Response.Redirect("~/Home.aspx");
+            }        
             Label9.Text = Session["movie_name"].ToString();
         }
 
@@ -23,6 +27,28 @@ namespace ShowTime.Theater
             SqlConnection con = cdb.connect;
             con.Open();
             SqlCommand com = cdb.command;
+            int flag = 0;
+            com.CommandText = "SELECT screen.screen_no,DATEADD(minute,movie.duration+15,show.show_time) AS end_time FROM screen INNER JOIN show ON screen.screen_id=show.screen_id INNER JOIN movie ON show.movie_id=movie.movie_id WHERE show.show_date=@show_date AND screen.user_id=@user_id1";
+            com.Parameters.AddWithValue("@show_date", TextBox2.Text);
+            com.Parameters.AddWithValue("@user_id1", Session["user_id"]);
+            SqlDataReader rdr1 = com.ExecuteReader();
+            while (rdr1.Read())
+            {
+                if (rdr1["screen_no"].ToString() == DropDownList1.SelectedItem.Text)
+                {
+                    if (DateTime.Compare(DateTime.Parse(rdr1["end_time"].ToString()), DateTime.Parse(TextBox3.Text)) > 0)
+                    {
+                        TextBox3.Text = "";
+                        TextBox3.Focus();
+                        Label10.Visible = true;
+                        flag = 1;
+                    }
+                    
+                }
+            }
+            if (flag == 0)
+            { Label10.Visible = false; }
+            rdr1.Close();
             com.CommandText = "SELECT seat_class FROM [dbo].[class] WHERE screen_id=(SELECT screen_id FROM [dbo].[screen] where screen_no=@screen_no AND user_id=@user_id)";
             com.Parameters.AddWithValue("@screen_no",DropDownList1.SelectedItem.Text);
             com.Parameters.AddWithValue("@user_id",Session["user_id"]);
@@ -138,6 +164,47 @@ namespace ShowTime.Theater
                     com.ExecuteNonQuery();
                 }
                 Response.Redirect("ShowList.aspx");
+        }
+
+        protected void TextBox3_TextChanged(object sender, EventArgs e)
+        {
+            if (DateTime.Parse(TextBox2.Text) < DateTime.Now)
+            {
+                TextBox2.Text = "";
+                Label21.Visible = true;
+            }
+            else
+            {
+                Label21.Visible = false;
+            }
+            ConnectDB cdb = new ConnectDB();
+            cdb.connectDataBase();
+            SqlConnection con = cdb.connect;
+            con.Open();
+            SqlCommand com = cdb.command;
+            int flag = 0;
+            com.CommandText = "SELECT screen.screen_no,DATEADD(minute,movie.duration+15,show.show_time) AS end_time FROM screen INNER JOIN show ON screen.screen_id=show.screen_id INNER JOIN movie ON show.movie_id=movie.movie_id WHERE show.show_date=@show_date AND screen.user_id=@user_id1";
+            com.Parameters.AddWithValue("@show_date", TextBox2.Text);
+            com.Parameters.AddWithValue("@user_id1", Session["user_id"]);
+            SqlDataReader rdr1 = com.ExecuteReader();
+            while (rdr1.Read())
+            {
+                if (rdr1["screen_no"].ToString() == DropDownList1.SelectedItem.Text)
+                {
+                    if(TextBox3.Text!="")
+                        if (DateTime.Compare(DateTime.Parse(rdr1["end_time"].ToString()), DateTime.Parse(TextBox3.Text)) > 0)
+                        {
+                            TextBox3.Text = "";
+                            TextBox3.Focus();
+                            Label10.Visible = true;
+                            flag = 1;
+                        }
+                }
+            }
+            if (flag == 0)
+            { Label10.Visible = false; }
+            rdr1.Close();
+            con.Close();
         }
     }
 }

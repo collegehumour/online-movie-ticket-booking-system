@@ -13,6 +13,12 @@ namespace ShowTime.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user_id"] == null || !Session["role_name"].Equals("Admin"))
+            {
+                Response.Redirect("~/Home.aspx");
+            }        
+
+
             if (Session["movie_id"] != null)
             {
                 Button1.Text = "Update";
@@ -120,6 +126,19 @@ namespace ShowTime.Admin
                 CustomValidator1.ForeColor = System.Drawing.Color.Green;
                 CustomValidator1.ErrorMessage = "File uploaded successfully.";
                 args.IsValid = true;
+            }
+        }
+
+        protected void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (DateTime.Parse(TextBox2.Text) < DateTime.Now)
+            {
+                TextBox1.Text = "";
+                Label21.Visible = true;
+            }
+            else
+            {
+                Label21.Visible = false;
             }
         }
     }
